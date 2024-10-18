@@ -4,7 +4,7 @@ import AboutBackgroundImage from '../Assets/about-background-image.png'
 import { BsFillPlayCircleFill } from 'react-icons/bs'
 function About() {
   return (
-    <div className='about-section-container'>
+    <div id= "about" className='about-section-container'>
         <div className='about-background-image-container'>
             <img src= {AboutBackground} alt=''/>
         </div>

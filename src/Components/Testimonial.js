@@ -3,7 +3,7 @@ import ProfilePic from '../Assets/john-doe-image.png'
 import { AiFillStar } from 'react-icons/ai'
 const Testimonial = () => {
   return (
-    <div className='work-section-wrapper'>
+    <div id= "testimonials" className='work-section-wrapper'>
       <div className='work-section-top'>
         <p className='primary-subheading'>Testimonial</p>
         <h1 className='primary-heading'>What They Are Saying</h1>

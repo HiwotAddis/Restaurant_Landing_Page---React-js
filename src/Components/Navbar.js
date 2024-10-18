@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-scroll'
 import Logo from "../Assets/Logo.svg"
 import {BsCart2} from "react-icons/bs"
 import { HiOutlineBars3 } from 'react-icons/hi2'
@@ -16,19 +17,23 @@ const Navbar = () => {
     const menuOptions=[ 
         {
             text:"Home",
-            icon:<HomeIcon/>
+            icon:<HomeIcon/>,
+            id: "home"
         },
         {
             text:"About",
-            icon:<InfoIcon/>
+            icon:<InfoIcon/>,
+            id: "about"
         },
         {
             text:"Testimonials",
-            icon:<CommentRoundedIcon/>
+            icon:<CommentRoundedIcon/>,
+            id: "testimonials"
         },
         {
             text:"Contact",
-            icon:<PhoneRounded/>
+            icon:<PhoneRounded/>,
+            id: "contact"
         },
         {
             text:"Cart",
@@ -41,10 +46,10 @@ const Navbar = () => {
             <img src={Logo} alt=''/>
         </div>
         <div className='navbar-links-container'>
-            <a href=''>Home</a>
-            <a href=''>About</a>
-            <a href=''>Testimonials</a>
-            <a href=''>Contact</a>
+            <Link to='home' smooth={true} duration={500}>Home</Link>
+            <Link to='about' smooth={true} duration={500}>About</Link>
+            <Link to='testimonials' smooth={true} duration={500}>Testimonials</Link>
+            <Link to='contact' smooth={true} duration={500}>Contact</Link>
             <a href=''><BsCart2 className='navbar-cart-icon'/></a>
             <button className='primary-button'>Bookings Now</button>
         </div>
@@ -61,7 +66,13 @@ const Navbar = () => {
                         <ListItem key={item.text} disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>{item.icon}</ListItemIcon>
-                                <ListItemText primary={item.text}/>
+                                {item.id ? (
+                                    <Link to={item.id} smooth={true} duration={500}>
+                                        <ListItemText primary={item.text} />
+                                    </Link>
+                                    ):(
+                                        <ListItemText primary={item.text} />
+                                )}
                             </ListItemButton>
                         </ListItem>
                     ))}
